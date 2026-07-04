@@ -6,7 +6,8 @@ public class ScoreReport {
 
         System.out.print("請輸入姓名：");
         String name = sc.nextLine();
-
+        
+        // 3. 讀取三科成績 (整數)
         System.out.print("請輸入 Java 成績：");
         int javaScore = sc.nextInt();
 
@@ -17,6 +18,7 @@ public class ScoreReport {
         int mathScore = sc.nextInt();
         double average = (javaScore + englishScore + mathScore) / 3.0;
 
+        // 5. 輸出成績報表
         System.out.println();
         System.out.println("=== 成績報表 ===");
         System.out.println("姓名：" + name);
