@@ -23,6 +23,7 @@ public class Q12_BookingReport {
         
         int count = 0;
         for (Q12_Booking b : bookings) {
+            // 確保物件不為 null 且已確認
             if (b != null && b.isConfirmed()) {
                 count++;
             }
@@ -36,6 +37,7 @@ public class Q12_BookingReport {
         
         double totalRevenue = 0.0;
         for (Q12_Booking b : bookings) {
+            // 收入只計算已確認的預約
             if (b != null && b.isConfirmed()) {
                 totalRevenue += b.getTotalPrice();
             }
@@ -48,11 +50,13 @@ public class Q12_BookingReport {
         if (bookings == null || id == null) return null;
         
         for (Q12_Booking b : bookings) {
+            // 使用 equalsIgnoreCase 忽略大小寫
             if (b != null && b.getId() != null && b.getId().equalsIgnoreCase(id)) {
                 return b;
             }
         }
-        return null; 
+        return null; // 找不到回傳 null
+    }
 
     // 4. 找出最高確認預約
     public static Q12_Booking findLargestConfirmed(Q12_Booking[] bookings) {
@@ -63,6 +67,7 @@ public class Q12_BookingReport {
         for (Q12_Booking b : bookings) {
             // 只比較已確認的預約
             if (b != null && b.isConfirmed()) {
+                // 如果是第一筆確認的預約，先設為目前最大
                 if (largest == null) {
                     largest = b;
                 } 
