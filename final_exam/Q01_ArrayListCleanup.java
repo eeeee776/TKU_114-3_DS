@@ -1,11 +1,26 @@
-public static int removeBelow(ArrayList<Integer> scores, int minimum) {
-    int removed = 0;
-    // 從陣列尾部往前檢查，避免刪除元素後發生索引錯位
-    for (int index = scores.size() - 1; index >= 0; index--) {
-        if (scores.get(index) < minimum) {
-            scores.remove(index);
-            removed++;
-        }
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Q01_ArrayListCleanup {
+    public static void main(String[] args) {
+        ArrayList<Integer> scores = new ArrayList<>(
+            Arrays.asList(72, 35, 28, 80, 41, 39, 90)
+        );
+
+        int removed = removeBelow(scores, 40);
+        System.out.println("移除筆數：" + removed);
+        System.out.println("保留資料：" + scores);
     }
-    return removed;
+
+    public static int removeBelow(ArrayList<Integer> scores, int minimum) {
+        int removed = 0;
+        // 從陣列尾部往前檢查，避免刪除元素後發生索引錯位
+        for (int index = scores.size() - 1; index >= 0; index--) {
+            if (scores.get(index) < minimum) {
+                scores.remove(index);
+                removed++;
+            }
+        }
+        return removed;
+    }
 }
